@@ -1,0 +1,6 @@
+#orderable tbody td.tu-index {
+  cursor: move;
+}
+#orderable .ui-sortable-helper {
+  opacity: .8;
+}
