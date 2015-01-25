@@ -1,9 +1,7 @@
 <?php
 /*
 Plugin Name: Train-up! Orderable questions
-Plugin URI: http://wptrainup.co.uk/
 Description: Addon that enables a new type of question, for which trainees are required to choose the correct order from a pre-defined list of things.
-Author: @amk221
 Version: 0.0.2
 License: GPL2
 */
@@ -15,9 +13,9 @@ class Orderable_questions_addon {
   /**
    * __construct
    *
-   * Listen to the filters that the Train-Up! plugin provides, and latch on, 
+   * Listen to the filters that the Train-Up! plugin provides, and latch on,
    * inserting the new functionality where needed.
-   * 
+   *
    * @access public
    */
   public function __construct() {
@@ -41,7 +39,7 @@ class Orderable_questions_addon {
    * - Fired on `init`
    * - Register the scripts and styles for the front end backend orderable
    *   questions add-on.
-   * 
+   *
    * @access public
    */
   public function _register_assets() {
@@ -54,9 +52,9 @@ class Orderable_questions_addon {
   /**
    * _add_type
    *
-   * - Callback for when retrieving the hash of question types. 
+   * - Callback for when retrieving the hash of question types.
    * - Insert our new 'orderable' question type.
-   * 
+   *
    * @param mixed $types
    *
    * @access public
@@ -74,7 +72,7 @@ class Orderable_questions_addon {
    *
    * - Callback for when the meta boxes are defined for Question admin screens
    * - Define one for our custom Question type: orderable
-   * 
+   *
    * @param mixed $meta_boxes
    *
    * @access public
@@ -98,7 +96,7 @@ class Orderable_questions_addon {
    *   box is to be rendered.
    * - Echo out the view that lets the administrator choose the correct order
    *   of the items for the question.
-   * 
+   *
    * @access public
    */
   public function _meta_box() {
@@ -114,7 +112,7 @@ class Orderable_questions_addon {
    *
    * - Fired when an orderable question is saved
    * - Update the Question's correct answer so that is can be validated.
-   * 
+   *
    * @param mixed $question
    *
    * @access public
@@ -137,7 +135,7 @@ class Orderable_questions_addon {
    * - Enqueue the script that helps the user create their orderable question.
    * - Enqueue the style that adds the 'move' cursor to the orderable items.
    * - jQuery UI Sortable script gets enqueued automatically as a dependency
-   * 
+   *
    * @access public
    */
   public function _add_backend_assets() {
@@ -150,7 +148,7 @@ class Orderable_questions_addon {
    *
    * - Fired when styles and scripts are enqueued on the frontend
    * - Enqueue the script that kicks off the orderableness.
-   * 
+   *
    * @access public
    */
   public function _add_frontend_assets() {
@@ -167,7 +165,7 @@ class Orderable_questions_addon {
    * - Output a list of the orderable items.
    *   (initially, show the orderable answers in a random order, but after a
    *   trainee has attempted to order them, always show their last order).
-   * 
+   *
    * @param mixed $content
    *
    * @access public
@@ -194,7 +192,7 @@ class Orderable_questions_addon {
    * - Fired when an orderable question is validated
    * - Return whether the user's attempt at answering the question was
    *   successful or not.
-   * 
+   *
    * @param mixed $correct Whether or not the answer is correct
    * @param mixed $users_answer The user's attempted answer
    * @param mixed $question The question this answer is for
@@ -212,6 +210,6 @@ class Orderable_questions_addon {
 }
 
 
-add_action('plugins_loaded', function() { 
+add_action('plugins_loaded', function() {
   new Orderable_questions_addon;
 });
